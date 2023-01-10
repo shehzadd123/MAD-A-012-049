@@ -1,117 +1,70 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Login from './screens/Login';
+import Alogin from './screens/Alogin';
+import FIR from './screens/FIR';
+import Signup from './screens/Signup';
+import Home from './screens/Home';
+import UserPanel from './screens/UserPanel';
+import Sets from './screens/Sets';
+import PMC from './screens/PMC';
+import Tabs from './screens/Tabs';
+import Rcrime from './screens/Rcrime';
+import Rcomplaint from './screens/Rcomplaint';
+import Auserpanel from './screens/Auserpanel';
+import CIT from './screens/CIT';
+import VRF from './screens/VRF';
+import VCD from './screens/VCD';
+import PM from './screens/PM';
+import Screen1 from './screens/Screen1';
+import Test from './screens/Test';
+import MyTheme from './screens/MyTheme';
+import Screen2 from './screens/Screen2';
+import Screen3 from './screens/Screen3';
+import FIRS from './screens/FIRS';
+import Firebaseee from './screens/Firebaseee';
+import Complaints from './screens/Complaints';
+import Rcomplaints from './screens/Rcomplaints';
+import VRFu from './screens/VRFu';
+// import AuthStack from './screens/AuthStack';
+// import CustomDrawer from './screens/CustomDrawer';
+const Stack = createNativeStackNavigator();
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{headerShown: false}}>
+        {/* <Stack.Screen name="Test" component={Test} /> */}
+        <Stack.Screen name="Firebaseee" component={Firebaseee} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="FIR" component={FIR} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Alogin" component={Alogin} />
+        <Stack.Screen name="Auserpanel" component={Auserpanel} />
+        <Stack.Screen name="UserPanel" component={UserPanel} />
+        <Stack.Screen name="Rcrime" component={Rcrime} />
+        <Stack.Screen name="Rcomplaint" component={Rcomplaint} />
+        <Stack.Screen name="Setings" component={Sets} />
+        <Stack.Screen name="PM" component={PM} />
+        <Stack.Screen name="PMC" component={PMC} />
+        <Stack.Screen name="CIT" component={CIT} />
+        <Stack.Screen name="VRF" component={VRF} />
+        <Stack.Screen name="VRFu" component={VRFu} />
+        
+        <Stack.Screen name="VCD" component={VCD} />
+        <Stack.Screen name="FIRS" component={FIRS} />
+        <Stack.Screen name="Screen2" component={Screen2} />
+        <Stack.Screen name="Screen3" component={Screen3} />
+        <Stack.Screen name="Complaints" component={Complaints} />
+        <Stack.Screen name="Rcomplaints" component={Rcomplaints} />
+        {/* <Stack.Screen name="CustomDrawer" component={CustomDrawer} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+}
 
 export default App;
